@@ -1,1 +1,6 @@
 /target
+/dist
+Cargo.lock
+
+crates/wasm/target
+crates/wasm/dist
