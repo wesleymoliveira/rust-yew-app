@@ -19,3 +19,15 @@ Rust app with WebAssembly by yew and stdweb
   ```
   trunk serve
   ```
+  - Install bonnie
+  ```
+  cargo install bonnie
+  ```
+- Install tailwindcss
+  ```
+  npm i -g tailwindcss
+  ```
+- How to run dev mode
+  ```
+  bonnie run frontend
+  ```
