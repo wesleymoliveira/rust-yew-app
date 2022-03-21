@@ -1,5 +1,6 @@
-use crate::components::home::Home;
+use crate::components::{header::Header, home::Home, login::Login, register::Register};
 use yew::prelude::*;
+use yew_router::prelude::*;
 
 pub enum Msg {
     DoIt,
@@ -22,12 +23,40 @@ impl Component for App {
     }
 
     fn view(&self, ctx: &Context<Self>) -> Html {
-        // This gives us a component's "`Scope`" which allows us to send messages, etc to the component.
-        let _link = ctx.link();
+        fn switch(routes: &AppRoute) -> Html {
+            match routes {
+                AppRoute::Login => html! {<Login />},
+                AppRoute::Register => html! {<Register />},
+                AppRoute::Home => html! {<Home />},
+            }
+        }
+
         html! {
-            <div class="container mx-1 px-1 flex-col">
-                <Home />
-            </div>
+            <>
+                <Header />
+                <BrowserRouter>
+                    <Switch<AppRoute> render={Switch::render(switch)} />
+                </BrowserRouter>
+
+            </>
         }
     }
+
+    fn changed(&mut self, ctx: &Context<Self>) -> bool {
+        true
+    }
+
+    fn rendered(&mut self, ctx: &Context<Self>, first_render: bool) {}
+
+    fn destroy(&mut self, ctx: &Context<Self>) {}
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Routable)]
+pub enum AppRoute {
+    #[at("/login")]
+    Login,
+    #[at("/register")]
+    Register,
+    #[at("/")]
+    Home,
 }
