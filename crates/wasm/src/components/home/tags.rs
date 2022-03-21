@@ -18,7 +18,15 @@ impl Component for Tags {
 
     fn view(&self, ctx: &Context<Self>) -> Html {
         html! {
-            <div>{ "Tags" }</div>
+            <div className="tag-list">
+                 <a
+                    href=""
+                    class="tag-default tag-pill"
+                    key=""
+                    >
+                    { "tags" }
+                </a>
+            </div>
         }
     }
 
