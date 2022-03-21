@@ -4,3 +4,5 @@ Cargo.lock
 
 crates/wasm/target
 crates/wasm/dist
+
+crates/wasm/tailwind.css
