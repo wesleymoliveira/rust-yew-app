@@ -1,4 +1,4 @@
-use crate::components::article_list::ArticleList;
+use crate::components::article::article_list::ArticleList;
 use yew::prelude::*;
 
 pub struct MainView {}
