@@ -50,7 +50,7 @@ impl Component for Login {
                                     <button
                                         class="btn btn-lg btn-primary pull-xs-right"
                                         type="submit"
-                                        disabled={ false }>
+                                        disabled=false>
                                         { "Sign in" }
                                     </button>
                                 </fieldset>

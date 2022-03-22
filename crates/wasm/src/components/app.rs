@@ -1,6 +1,10 @@
-use crate::components::{header::Header, home::Home, login::Login, register::Register};
 use yew::prelude::*;
 use yew_router::prelude::*;
+
+use super::{
+    article::Article, editor::Editor, header::Header, home::Home, login::Login, profile::Profile,
+    profile_favorites::ProfileFavorites, register::Register, settings::Settings,
+};
 
 pub enum Msg {
     DoIt,
@@ -28,6 +32,12 @@ impl Component for App {
                 AppRoute::Login => html! {<Login />},
                 AppRoute::Register => html! {<Register />},
                 AppRoute::Home => html! {<Home />},
+                AppRoute::Editor { slug } => html! {<Editor />},
+                AppRoute::EditorCreate => html! {<Editor />},
+                AppRoute::Article { slug } => html! {<Article />},
+                AppRoute::Settings => html! {<Settings />},
+                AppRoute::ProfileFavorites { username } => html! {<ProfileFavorites />},
+                AppRoute::Profile { username } => html! {<Profile />},
             }
         }
 
@@ -51,7 +61,7 @@ impl Component for App {
     fn destroy(&mut self, ctx: &Context<Self>) {}
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Routable)]
+#[derive(Debug, Clone, PartialEq, Routable)]
 pub enum AppRoute {
     #[at("/login")]
     Login,
@@ -59,4 +69,16 @@ pub enum AppRoute {
     Register,
     #[at("/")]
     Home,
+    #[at("/editor/{slug}")]
+    Editor { slug: String },
+    #[at("/editor")]
+    EditorCreate,
+    #[at("/article/{slug}")]
+    Article { slug: String },
+    #[at("/settings")]
+    Settings,
+    #[at("/@{username}/favorites")]
+    ProfileFavorites { username: String },
+    #[at("/@{username}")]
+    Profile { username: String },
 }

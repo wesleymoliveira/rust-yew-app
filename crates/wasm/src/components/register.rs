@@ -58,7 +58,7 @@ impl Component for Register {
                                     <button
                                         class="btn btn-lg btn-primary pull-xs-right"
                                         type="submit"
-                                        disabled={ false }>
+                                        disabled=false>
                                         { "Sign in" }
                                     </button>
                                 </fieldset>

@@ -1,3 +1,4 @@
+use crate::components::article_list::ArticleList;
 use yew::prelude::*;
 
 pub struct MainView {}
@@ -32,7 +33,7 @@ impl Component for MainView {
                     </ul>
                 </div>
 
-                // TO DO: ArticleList
+                <ArticleList />
             </div>
         }
     }
